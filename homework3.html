@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
+
 <head>
- <meta charset="UTF-8">
- <title>homework3</title>
+    <meta charset="UTF-8">
+    <title>homework3</title>
     <style>
         .button {
             background-color: #4CAF50;
@@ -23,22 +24,25 @@
         }
 
         .button.active {
-            background-color: #008CBA;
+            background-color: #ba0000;
+            color: antiquewhite;
         }
 
         .button-container {
-            display: flex;
+            display:contents;
             flex-direction: column;
             align-items: flex-start;
-            height: 100vh;
+            height: 0vh;
             width: 200px;
-            padding: 20px;
+            padding: 200px;
             background-color: #f1f1f1;
         }
 
         .content-container {
-            float: right;
+            float:right;
             margin-left: 20px;
+            height: 400px; /* 固定容器的高度 */
+            overflow-y: auto; /* 添加垂直滚动条 */
         }
     </style>
 </head>
@@ -65,7 +69,7 @@
 
             if (category === "tencent") {
                 text = "<h2>腾讯公司</h2>";
-                text += "<p>腾讯公司是中国领先的互联网公司，成立于1998年，总部位于中国深圳。腾讯公司的主要产品和服务包括社交媒体、在线游戏、金融科技、数字内容等。";
+                text += "<p>腾讯公司是中国领先的互联网公司，成立于1998年，总部位于中国深圳。腾讯公司的主要产品和服务包括社交媒体、在线游戏、金融科技、数字内容等。<br>";
                 text += "腾讯公司的官方网站：<a href='https://www.tencent.com' target='_blank'>https://www.tencent.com</a></p>";
             } else if (category === "anquan") {
                 text = "<h2>安全</h2>";
