@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Welcome to my webpage</title>
+    <link rel="icon" type="image/png" href="images/favicon.ico">
     <style>
         h1 {
             text-align: center;
@@ -22,27 +24,290 @@
             border-radius: 4px;
         }
 
+        .button2 {
+            margin-top: 10px;
+            border: none;
+        }
+
         /* 按钮悬停样式 */
         .button:hover {
-            background-color: #45a049; /* 设置悬停时的背景颜色 */
+            background-color: #45a049;
+            /* 设置悬停时的背景颜色 */
         }
 
         /* 按钮容器样式 */
         .button-container {
-            display: flex; /* 使用Flex布局 */
-            justify-content: center; /* 水平居中 */
-            align-items: center; /* 垂直居中 */
-            height: 100vh; /* 设置容器高度为视窗高度 */
+            display: flex;
+            /* 使用Flex布局 */
+            justify-content: center;
+            /* 水平居中 */
+            align-items: center;
+            /* 垂直居中 */
+            height: 100vh;
+            /* 设置容器高度为视窗高度 */
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateY(-100%);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: bisque;
+            color: #fff;
+            font-size: 20px;
+            animation: slide 3s linear forwards;
+            animation-fill-mode: forwards;
+            height: 200px;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f2f2f2;
+            padding: 10px;
+        }
+
+        .footer-right {
+            height: 75%;
+            text-align: center;
+        }
+
+        .footer-right {
+            height: 25%;
+            text-align: right;
+        }
+
+        #message1,
+        #message2 {
+            margin: 0;
+        }
+
+        button {
+            margin-top: 10px;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .highlighted {
+            background-color: bisque;
+            color: black;
+        }
+
+        p {
+            font-family: "华文新魏", cursive;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        nav li {
+            margin-right: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            color: rgb(20, 20, 13);
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+
+/*         .slider {
+            width: 100%;
+            background-color: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .slider-track {
+            width: 50%;
+            height: 2px;
+            background-color: #bbb;
+            transition: width 0.3s ease;
+        }
+
+        .slider-thumb {
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        } */
+
+        .image {
+            width: 100%;
+            height: auto;
+        }
+
+        .image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .aa {
+            background-color: bisque;
+            border-radius: 50%;
+            border: #02050ace 2px solid;
+            transition-duration: 0.4s;
+            box-shadow: #8d6161;
+
+        }
+
+        .aa:hover {
+            background-color: #4CAF50;
+            /* Green */
+            color: white;
+            box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .aa:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+
         }
     </style>
 </head>
+
 <body>
-    <h1>欢迎观看不羁小煜的网页作业</h1>
-    <div class="button-container">
-        <button class="button" onclick="location.href='homework1.html'">作业1</button>
-        <button class="button" onclick="location.href='homework2.html'">作业2</button>
-        <button class="button" onclick="location.href='homework3.html'">作业3</button>
-        <button class="button" onclick="location.href='homework4.html'">作业4</button>
+    <div class="header">
+        <h1><a href="index.html">Welcome To BUJIXIAOYU'S WEBINDEX</a></h1>
+        <div class="slogan"><span>Responsive HTML Theme</span></div>
+        <nav>
+            <ul>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="pages.html">Pages</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
     </div>
+
+
+
+    <img src="./images/sliders/img_01.jpg" width="500px" height="300px" alt="404" id="f">
+    <button class="aa" onclick="prevImage()">上一张</button>
+    <button class="aa" onclick="nextImage()">下一张</button>
+    <!-- 
+    <div class="slider">
+        <div class="slider-track" id="sliderTrack"></div>
+        <div class="slider-thumb" id="sliderThumb"></div>
+    </div>
+    <div class="image">
+        <img id="image1" src="images/sliders/img_01.jpg">
+        <img id="image1" src="images/sliders/img_02.jpg"> <!-- 这里放置你的图片 -->
+    </div>
+    <p id="info" style="display: none;">这是一段文字信息</p>
+    <script src="script.js"></script> <!-- 引入你的JavaScript代码 --> -->
 </body>
+<!-- <footer>
+    <div class="footer-left">
+        <button class="button2" id="previous" onclick="toggleMessage()" disabled>Previous</button>
+        <button class="button2" id="next" onclick="toggleMessage()">Next</button>
+        <p id="message1">与理想平等交易，同喧器保持距离</p>
+        <p id="message2" style="display: none;">认清了生活的真相 然后更加热爱自己</p>
+    </div>
+    <div class="footer-right">
+        <p>Contact Me</p>
+        <a href="mailto:3405788706@qq.com">发送邮件</a>
+    </div>
+</footer>
+
+ -->
+
+<script>
+   /*  function toggleMessage() {
+        var message1 = document.getElementById("message1");
+        var message2 = document.getElementById("message2");
+        var previousButton = document.getElementById("previous");
+        var nextButton = document.getElementById("next");
+
+        if (message1.style.display === "none") {
+            message1.style.display = "block";
+            message2.style.display = "none";
+            previousButton.disabled = false;
+            nextButton.disabled = true;
+            previousButton.classList.remove("highlighted");
+            nextButton.classList.add("highlighted");
+        } else {
+            message1.style.display = "none";
+            message2.style.display = "block";
+            previousButton.disabled = true;
+            nextButton.disabled = false;
+            previousButton.classList.add("highlighted");
+            nextButton.classList.remove("highlighted");
+        }
+    }
+    setTimeout(toggleMessage, 10000); // 10秒后自动切换
+
+    // 初始状态下将Next按钮处于高亮状态
+    var nextButton = document.getElementById("next");
+    nextButton.classList.add("highlighted");
+ */
+
+
+    var images = ['./images/sliders/img_01.jpg', './images/sliders/img_02.jpg', './images/sliders/img_03.jpg']; // 图像数组
+    var currentIndex = 0; // 当前图像索引
+
+    function prevImage() {
+
+        currentIndex--;
+        if (currentIndex < 0) {
+            currentIndex = images.length - 1;
+        }
+        changeImage();
+    }
+
+    function nextImage() {
+        currentIndex++;
+        if (currentIndex >= images.length) {
+            currentIndex = 0;
+        }
+        changeImage();
+    }
+
+    function changeImage() {
+        var img = document.getElementById('f');
+        img.src = images[currentIndex];
+    }
+
+    function lode() {
+        alert('页面加载完成')
+    }
+</script>
+
 </html>
