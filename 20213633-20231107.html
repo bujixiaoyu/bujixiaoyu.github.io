@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>video</title>
+  <style>
+		body {
+			background-color: #434843;
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+          
+		}
+		video {
+    display: block;
+    margin: auto;
+    width: 50vw; /* 浏览器页面宽度的一半 */
+    height: 50vh; /* 浏览器页面高度的一半 */
+    border: 4px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+		div{
+			text-align: center;
+		}
+		.button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            background-color:bisque;
+            color: #070901ee;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            margin: 10px
+        }
+        
+        .button:hover {
+            background-color: #45a049;
+        }
+		/* #page{
+			display:flex;
+			align-items:center;
+			justify-content:center;
+		} */
+		#logo {
+  background-color: red;
+  color: black;
+  font-size: 20px;
+  padding: 10px 20px;
+  z-index: 1;
+  top: 0.8em;
+  left: 0.8em;
+  position: absolute;
+}
+#showTime {
+  background-color: blue;
+  color: black;
+  font-size: 20px;
+  padding: 10px 20px;
+  z-index: 1;
+  top: 0.8em;
+  right:0.8em;
+  position: absolute;
+}
+#container {
+    background-color: 	#FFF  ; 
+        border: 1px solid #ccc;
+        padding: 10px; 
+        margin: 20px auto;
+        width: 50vw; /* 浏览器页面宽度的一半 */
+    height: 50vh; /* 浏览器页面高度的一半 */
+		position: relative;
+}
+  </style>
+ </head>
+ <body>
+    <div id="container">
+ <video controls id = "myvideo"></video>
+ <div id="showTime">0s/0s</div>
+ <div id="logo">1/3</div>
+</div>
+ <div>
+  <a class="button" href="#" id = "play">播放</a>
+  <a class="button" href="#" id = "stop">停止</a><br>
+  <a class="button" href="#" id = "last">上一个</a>
+  <a class="button" href="#" id = "next">下一个</a>
+  <a class="button" href="#" id = "Fullscreen">全屏</a><br>
+  <label for="currentTime"></label>
+  <input type="text" id="currentTime" placeholder="输入秒数">
+  <a class="button" href="#" id = "jump">跳转时间</a>
+  <label for="videoNumber"></label>
+  <input type="text" id="videoNumber" placeholder="输入视频号">
+  <a class="button" href="#" id = "search">选集</a>
+  </div>
+  <div id="page">
+   <p id="current-video"></p>
+  </div>
+  <div id="buttons"></div>
+  </body>
+ <script>
+ var Model = {};
+    Model.UI = {};
+    Model.i = 0;
+    Model.UI.videos = ["live today.mp4","control.mp4","right now.mp4"];
+	Model.UI.myvideo = document.querySelector("#myvideo");
+    Model.UI.currentVideoElement = document.getElementById("current-video");
+    Model.UI.logoElement = document.getElementById("logo");
+    Model.UI.showTimeElement = document.getElementById("showTime");
+    Model.UI.videoNumberDom = document.getElementById("videoNumber");
+    Model.UI.currentTimeDom = document.getElementById("currentTime");
+    Model.UI.buttonDoms = [];
+	//视频的全屏设置
+   /*  var browserWidth = document.body.clientWidth;
+    Model.UI.myvideo.style.width = browserWidth + 'px'; */
+   
+    function updateCurrentVideoElement() {
+        let currentVideoElement = Model.UI.currentVideoElement;
+    }
+
+    function logoDom() {
+        let logoElement = Model.UI.logoElement;
+        let videos = Model.UI.videos;
+        logoElement.textContent = (Model.i + 1) + "/" + (videos.length);
+    }
+
+    setInterval(function showTimeDom() {
+        let showTimeElement = Model.UI.showTimeElement;
+        let myvideo = Model.UI.myvideo;
+        showTimeElement.textContent = parseInt(myvideo.currentTime) + "s" + "/" + parseInt(myvideo.duration) + "s";
+    }, 1000);
+    //跳转到某个视频
+
+    document.getElementById("search").onclick = function () {
+        let videoNumberDom = Model.UI.videoNumberDom;
+        let myvideo = Model.UI.myvideo;
+        let videos = Model.UI.videos;
+        Model.i = parseInt(videoNumberDom.value) - 1;
+        if (Model.i >= 0 && Model.i < videos.length) {
+            myvideo.src = "video/" + videos[Model.i];
+        } else if (Model.i < 0) {
+            alert("当前视频编号不存在，请输入正确的视频编号！");
+            Model.i = 0;
+            myvideo.src = "video/" + videos[Model.i];
+        } else if (Model.i >= videos.length) {
+            alert("当前视频编号不存在，请输入正确的视频编号！");
+            Model.i = videos.length - 1;           
+            myvideo.src = "video/" + videos[Model.i];
+            alert("即将跳转最后一个视频")
+        } else {
+            alert("输入正确格式");
+            return;
+        }
+        myvideo.play();
+        updateCurrentVideoElement();
+        logoDom();
+        //showTimeDom();
+    };//updateCurrentVideoElement();
+    Model.UI.myvideo.src = "video/" + Model.UI.videos[0];
+    document.getElementById("play").onclick = function () {
+        //myvideo.currentTime = currentTimeDom.value;//String to number
+        Model.UI.myvideo.play();
+        //showTimeDom();
+    };
+    document.getElementById("stop").onclick = function () {
+        Model.UI.myvideo.pause();
+    };
+    document.getElementById("last").onclick = function () {
+        let videos = Model.UI.videos;
+
+        if (Model.i <= 0) {
+            Model.i = videos.length;
+        }
+        Model.i--;
+        Model.UI.myvideo.src = "video/" + videos[Model.i];
+        Model.UI.myvideo.play();
+        updateCurrentVideoElement();
+        logoDom();
+        //showTimeDom();
+    };
+    document.getElementById("next").onclick = function () {
+        let videos = Model.UI.videos;
+        Model.i++;
+        if (Model.i == videos.length) {
+            Model.i = 0;
+        }
+        if (Model.i > videos.length) {
+            Model.i = videos.length - 1;
+        }
+        Model.UI.myvideo.src = "video/" + videos[Model.i];
+        Model.UI.myvideo.play();
+        updateCurrentVideoElement();
+        logoDom();
+        //showTimeDom();
+    };
+    for (let i = 0; i < 10; i++) {
+        let buttonDom = document.createElement("input");
+        buttonDom.type = 'button';
+        buttonDom.value = "第" + (i + 1) + "部分";
+        Model.UI.buttonDoms[i] = buttonDom;
+        document.getElementById("buttons").appendChild(Model.UI.buttonDoms[i]);
+    }
+    for (let i = 0; i < 10; i++) {
+        Model.UI.buttonDoms[i].onclick = function () {
+            Model.UI.myvideo.currentTime = (i + 1) * Model.UI.myvideo.duration / 10;
+        }
+    }
+
+    //跳转到视频的某一秒
+
+    //currentTimeDom.value = 500;
+    document.getElementById("jump").onclick = function () {
+        var jumpTime = parseFloat(Model.UI.currentTimeDom.value);
+        if (!parseInt(jumpTime)) {                       
+            alert("输入正确数据类型");            
+        }
+        if (jumpTime > Model.UI.myvideo.duration ){
+            alert('当前视频最大时间为：' + Model.UI.myvideo.duration + '秒,请输入正确的时间')
+
+        }
+        Model.UI.myvideo.currentTime = Model.UI.currentTimeDom.value;
+        Model.UI.myvideo.play();
+    };
+
+
+
+    document.getElementById("Fullscreen").onclick = function (){
+        let video = Model.UI.myvideo
+        if (video.requestFullscreen) {
+    video.requestFullscreen();
+  } else if (video.mozRequestFullScreen) { /* Firefox */
+    video.mozRequestFullScreen();
+  } else if (video.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+    video.webkitRequestFullscreen();
+  } else if (video.msRequestFullscreen) { /* IE/Edge */
+    video.msRequestFullscreen();
+  }
+}
+
+    updateCurrentVideoElement();
+</script>
+</html>

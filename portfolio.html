@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!--[if lte IE 8]> <html class="oldie" lang="en"> <![endif]-->
+<!--[if IE 9]> <html class="ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="format-detection" content="telephone=no">
+	<title>BuJi XiYu</title>
+	<!-- add fancybox.css -->
+	<link rel="stylesheet" href="js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="css/all.css" />
+	<link rel="stylesheet" href="css/screen.css" />
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<style>
+	.button {
+		background-color: #4CAF50;
+		border: none;
+		color: white;
+		padding: 10px 20px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		cursor: pointer;
+		border-radius: 4px;
+	}
+
+
+	/* 按钮悬停样式 */
+	.button:hover {
+		background-color: #45a049;
+		/* 设置悬停时的背景颜色 */
+	}
+
+	/* 按钮容器样式 */
+	.button-container {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: 10px;
+		justify-content: center;
+		align-items: center;
+		height: 50vh;
+	}
+</style>
+
+<body>
+	<div id="wrapper" class="portfolio">
+		<div class="wrapper-holder">
+			<header id="header">
+				<a class="menu_trigger" href="#">menu</a>
+				<nav id="nav">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="myskills.html">My skills</a></li>
+						<li><a class="active" href="Portfolio.html">Portfolio</a></li>
+						<li><a href="Contact.html">Contact</a></li>
+					</ul>
+				</nav>
+			</header>
+		</div>
+		<div class="wrapper-holder grey">
+			<section id="main">
+				<h2>All works that I made</h2>
+				<div class="button-container">
+					<button class="button" onclick="location.href='20213633-20230905.html'">作业1</button>
+					<button class="button" onclick="location.href='20213633-20230912.html'">作业2</button>
+					<button class="button" onclick="location.href='20213633-20230919.html'">作业3</button>
+					<button class="button" onclick="location.href='20213633-20230926.html'">作业4</button>
+					<button class="button" onclick="location.href='20213633-20231010.html'">作业5</button>
+					<button class="button" onclick="location.href='20213633-20231017.html'">作业6</button>
+					<button class="button" onclick="location.href='20213633-20231024.html'">作业7</button>
+					<button class="button" onclick="location.href='20213633-20231031.html'">作业8</button>
+					<button class="button" onclick="location.href='20213633-20231107.html'">作业9</button>
+					<button class="button" onclick="location.href='ks.html'">考试</button>
+				</div>
+			</section>
+		</div>
+
+		<footer id="footer">
+			<div class="footer-content">
+				<ul class="social">
+					<li class="email"><a href="#">Email</a></li>
+					<li class="facebook"><a href="#">Facebook</a></li>
+					<li class="google"><a href="#">Google+</a></li>
+					<li class="twitter"><a href="#">Twitter</a></li>
+					<li class="pinterest"><a href="#">Pinterest</a></li>
+				</ul>
+				<p class="copy">Copyright 2023 BuJi XiYu. All rights reserved.</p>
+			</div>
+		</footer>
+	</div>
+	<!-- <div style="display:none;">
+		<div id="portfolio_1" class="popup_portfolio">
+			<img src="images/img_pf02.jpg"  alt="" />
+			<h3>Title of the work</h3>
+			<time datetime="2014-06-20">Made: 06/20/14</time>
+			<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+		</div>
+		<div id="portfolio_2" class="popup_portfolio">
+			<img src="images/img_pf02.jpg"  alt="" />
+			<h3>Title of the work</h3>
+			<time datetime="2014-06-20">Made: 06/20/14</time>
+			<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+		</div>
+		<div id="portfolio_3" class="popup_portfolio">
+			<img src="images/img_pf02.jpg"  alt="" />
+			<h3>Title of the work 3</h3>
+			<time datetime="2014-06-20">Made: 06/20/14</time>
+			<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+		</div>
+		<div id="portfolio_4" class="popup_portfolio">
+			<img src="images/img_pf02.jpg"  alt="" />
+			<h3>Title of the work 4</h3>
+			<time datetime="2014-06-20">Made: 06/20/14</time>
+			<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+		</div>
+		<div id="portfolio_5" class="popup_portfolio">
+			<img src="images/img_pf02.jpg"  alt="" />
+			<h3>Title of the work 5</h3>
+			<time datetime="2014-06-20">Made: 06/20/14</time>
+			<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+		</div>
+		<div id="portfolio_6" class="popup_portfolio">
+			<img src="images/img_pf02.jpg"  alt="" />
+			<h3>Title of the work 6</h3>
+			<time datetime="2014-06-20">Made: 06/20/14</time>
+			<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+		</div>
+		<div id="portfolio_7" class="popup_portfolio">
+			<img src="images/img_pf02.jpg"  alt="" />
+			<h3>Title of the work 7</h3>
+			<time datetime="2014-06-20">Made: 06/20/14</time>
+			<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+		</div>
+		<div id="portfolio_8" class="popup_portfolio">
+			<img src="images/img_pf02.jpg"  alt="" />
+			<h3>Title of the work 8</h3>
+			<time datetime="2014-06-20">Made: 06/20/14</time>
+			<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+		</div>
+	</div> -->
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="js/isotope.pkgd.min.js"></script>
+	<script src="js/cells-by-row.js"></script>
+	<script type="text/javascript" src="js/fancybox/jquery.fancybox.pack.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>

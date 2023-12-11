@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      background-color: bisque;
+      text-align: center;
+    }
+
+    .button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .button:hover {
+      background-color: #45a049;
+      /* 设置悬停时的背景颜色 */
+    }
+
+    /* 按钮容器样式 */
+    .button-container {
+      display: flex;
+      /* 使用Flex布局 */
+      justify-content: center;
+      /* 水平居中 */
+      align-items: center;
+      /* 垂直居中 */
+    }
+  </style>
+</head>
+
+<body>
+  <video id="videoPlayer" src="./video/live today.mp4" controls width="500px"></video><br>
+  <button class="button" onclick="playVideo()">播放视频</button>
+  <button class="button" onclick="pauseVideo()">暂停视频</button>
+  <button class="button" onclick="previousVideo()">播放上一个视频</button>
+  <button class="button" onclick="nextVideo()">播放下一个视频</button>
+
+
+
+  <br><br>
+
+  <label for="jumpToTime">跳转至：</label>
+  <input type="number" id="jumpToTime" min="0" step="1" value="0">秒
+  <button class="button" onclick="jumpToTime()">跳转</button>
+
+  <br><br>
+
+  <label for="playlist">选集：</label>
+  <select id="playlist" onchange="playSelectedVideo()">
+    <option value="0">Live Today</option>
+    <option value="1">Control</option>
+    <option value="2">Right Now</option>
+
+
+  </select>
+  <script>
+    var videoPlayer = document.getElementById('videoPlayer');
+    var currentVideoIndex = 0;
+    var videos = ['./video/live today.mp4', './video/control.mp4', './video/right now.mp4']; // 假设你有三个视频文件
+
+    function playVideo() {
+      videoPlayer.play();
+    }
+
+    function pauseVideo() {
+      videoPlayer.pause();
+    }
+
+    function previousVideo() {
+      if (currentVideoIndex > 0) {
+        currentVideoIndex--;
+        videoPlayer.src = videos[currentVideoIndex];
+        videoPlayer.play(); // 如果视频被暂停，这里应该调用play方法播放视频
+      }
+    }
+
+    function nextVideo() {
+      if (currentVideoIndex < videos.length - 1) {
+        currentVideoIndex++;
+        videoPlayer.src = videos[currentVideoIndex];
+        videoPlayer.play(); // 如果视频被暂停，这里应该调用play方法播放视频
+      }
+    }
+
+    //进行视频跳转和选集
+
+    var videoPlayer = document.getElementById('videoPlayer');
+    var currentVideoIndex = 0;
+    var videos = ['./video/live today.mp4', './video/control.mp4', './video/right now.mp4'];
+    var videoDurations = [0, 0, 0];
+
+    videoPlayer.addEventListener('loadedmetadata', function () {
+      videoDurations[currentVideoIndex] = videoPlayer.duration;
+    });
+
+    function playVideo() {
+      videoPlayer.play();
+    }
+
+    function pauseVideo() {
+      videoPlayer.pause();
+    }
+
+    function previousVideo() {
+      if (currentVideoIndex > 0) {
+        currentVideoIndex--;
+        playCurrentVideo();
+      }
+    }
+
+    function nextVideo() {
+      if (currentVideoIndex < videos.length - 1) {
+        currentVideoIndex++;
+        playCurrentVideo();
+      }
+    }
+
+    function playCurrentVideo() {
+      videoPlayer.src = videos[currentVideoIndex];
+      videoPlayer.play();
+      document.getElementById('playlist').selectedIndex = currentVideoIndex;
+    }
+
+    function jumpToTime() {
+      var time = parseInt(document.getElementById('jumpToTime').value);
+      if (time > videoDurations[currentVideoIndex]) {
+        time = videoDurations[currentVideoIndex];
+        alert('当前视频最大时间为：' + time + '秒');
+      }
+      videoPlayer.currentTime = time;
+    }
+
+    function playSelectedVideo() {
+      currentVideoIndex = document.getElementById('playlist').selectedIndex;
+      playCurrentVideo();
+    }
+  </script>
+</body>
+
+</html>
